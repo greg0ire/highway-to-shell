@@ -98,6 +98,8 @@ The `m` stands for master, and the `s` for `slave`… don't ask me why they
 thought slavery was the best metaphor for this.
 The 2 most common types of programs that use PTYs are terminal emulators and
 `sshd`, the SSH daemon, which exposes a shell to remote users.
+Fun experiment: try opening 2 terminal emulators, and run `tty` in both of them.
+Then try communicating between them with `echo`.
 
 ---
 
