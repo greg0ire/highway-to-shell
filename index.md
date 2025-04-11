@@ -114,6 +114,23 @@ terminal emulators that come pre-installed on some operating systems.
 
 ---
 
+### Terminal emulators I've used
+
+- `alacritty`
+- `wezterm`
+- `ghostty`
+
+Notes:
+
+Here are some terminal emulators I have used. My main criterias for picking one
+are:
+
+- it should be easy to paste to it
+- it should be easy to copy from it
+- it should be easy to search text in it
+
+---
+
 shell + kernel = operating system
 
 <img src="walnuts.jpg" class="r-stretch" alt="walnuts"/>
