@@ -73,7 +73,8 @@ Notes:
 Now that we've got better input, we need better output. Let's just add A CRT
 screen to the teletypewriter. That's a terminal. That's still a physical object
 separated from the real computer though. At the time it makes sense because the
-computer barely fits in a room, and costs a fortune.
+computer barely fits in a room, and costs a fortune. It can also be called a
+console.
 
 ---
 
