@@ -484,14 +484,15 @@ but it allows you to confirm that a directory or file exists.
 
 ### Modernizing your shell
 
-| 👴           | 😎                  |
-|--------------|---------------------|
-| `Ctrl+R`     | `fzf` / `mcfly`     |
-| `cat`/`less` | `bat`               |
-| `cd`         | `zoxide`            |
-| `grep`       | `rg` (ripgrep)      |
-| `find`       | `fd`                |
-| `man`        | `tldr`              |
+| 👴           | 😎                    |
+|--------------|-----------------------|
+| `Ctrl+R`     | `fzf` / `mcfly`       |
+| -            | `zsh-autosuggestions` |
+| `cat`/`less` | `bat`                 |
+| `cd`         | `zoxide`              |
+| `grep`       | `rg` (ripgrep)        |
+| `find`       | `fd`                  |
+| `man`        | `tldr`                |
 
 Notes:
 
