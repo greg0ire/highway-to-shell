@@ -529,12 +529,14 @@ can get faster.
 
 Feel the bumps on the `F` and `J` keys? 😌
 
+<img src="bumps.png" class="r-stretch" alt="bumps on the F and J keys"/>
+
 Notes:
 
 The first one is touch typing.
 Not having to look at the keyboard is a huge time saver. It means you notice
 your mistakes earlier, because you are looking at the screen.
-There are several websites that can help you with that.
+There are several websites that can help you with that, like typingclub.com
 
 ---
 
