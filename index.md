@@ -2,6 +2,15 @@
 
 Reaching terminal velocity
 
+Notes:
+
+Hi, I'm Grégoire, I'm a software engineer specialized in backend development,
+and most of the work I do is done in a terminal. What was once just a tool to run
+quick one-off commands has become my main interface with the computer.
+I believe it makes me efficient in my work, and with this presentation, I want to
+give you a few tips in case you want to become more proficient with this kind
+of workflow yourself.
+
 ---
 
 ## Vocabulary
@@ -19,8 +28,8 @@ Let's start with a bit of vocabulary. There is a lot of confusion around the CLI
 so let's clarify a few things.
 
 - TTYs and terminals are physical things that allow you to interact with a computer
-- terminal emulator is the modern version, and makes it appear in a window on
-  your screen
+- terminal emulator is the modern version of that, and makes terminals appear in a
+  window on your screen
 - inside the terminal, emulated or not, there is a shell that is here to
   interpret your commands
 - The shell has a command line interface or CLI
@@ -38,8 +47,8 @@ Notes:
 At the beginning, punched cards were used as a way to input data or programs
 into a computer. They were impractical because they were physical objects that
 would be fed in a batch to a machine that would produce other punched cards or
-printouts. One punched card allowed you to write one line of code, maximum 80
-chars. Not very handy.
+printouts. One punched card allowed you to write just one line of code, maximum
+80 characters. Not very handy.
 
 ---
 
@@ -148,6 +157,24 @@ with the operating system.
 
 ### The Command Line Interface
 
+```console
+$ your input goes here<Enter>
+The output shows here
+```
+
+
+Notes:
+
+The main way to use the shell is interactively, through the command line
+interface. The secondary way is through scripts, which are files that contain
+shell scripts. You can have a more or less elaborate prompt, and a cursor
+allowing you to build a command line that you can send to your shell by
+pressing enter.
+
+---
+
+### Inputs and outputs
+
 <ul>
   <li class="fragment"><code>&lt;</code> input: text </li>
   <li class="fragment"><code>&gt;</code> output: text </li>
@@ -158,11 +185,10 @@ with the operating system.
 
 Notes:
 
-The main way to use the shell is interactively, through the command line
-interface. The secondary way is through scripts, which are files that contain
-shell scripts.
-
-The input of a command line program is text, and its outputs are text as well.
+Once you have pressed enter, the shell will interpret your command line and
+execute it, then display its output.
+When using the shell, the input of a command line program is text, and its
+outputs (note the plural) are text as well.
 So text is king. And the cool thing is you can plug the output of one program
 to another, with this little pipe character. You can compose small programs
 together to build more complex programs that do exactly what you want.
@@ -175,7 +201,6 @@ together to build more complex programs that do exactly what you want.
   <li class="fragment"><code>stdin (0)</code></li>
   <li class="fragment"><code>stdout (1)</code></li>
   <li class="fragment"><code>stderr (2)</code></li>
-  <li class="fragment">👆 bad name (<code>stdnotify</code>?)</li>
 </ul>
 
 Notes:
@@ -183,11 +208,27 @@ Notes:
 So there are three streams. First, the standard input stream, which can be
 plugged directly to the user, or to the output of another program with a pipe.
 Then we have 2 streams where our program can write: the so-called standard output
-stream, and we have the badly called standard error stream.
+stream, and we have the standard error stream.
 
-I'm saying it's badly called because if you have a program that must output a
-piece of JSON, but also can output a nice green success notification to the
-user, it should print that notification to the standard error stream.
+---
+
+### stderr: a bad name?
+
+```shell
+#!/bin/bash
+echo '{
+  "status": "success",
+  "message": "Hello world!"
+}'
+echo "try piping me into jq with $0 | jq" >/dev/stderr
+```
+
+Notes:
+
+In my opinion, standard error is not a great name because if you have a program
+that must output a piece of JSON, but also can output a nice green success
+notification to the user, it should print that notification to the standard
+error stream.
 
 That way, you can still pipe the JSON to another program, and the user will
 still see the notification, and the program that consumes the JSON will not be
@@ -203,7 +244,8 @@ confused by the notification.
 
 Notes:
 
-Streams can be redirected to files.
+Streams can be redirected to files or created from files using the above
+operators.
 
 ---
 
@@ -228,12 +270,15 @@ the program writing to it.
 
 Personal anecdote: I was once away from keyboard and had to spell this one out
 to a colleage at midnight over the phone to get the website of the company we
-worked for back on track. He was a graphic designer so… that was fun!
+worked for back on its feet.
 
 Note that on Linux, everything is a file, and the streams we mentioned can be
-referred to as numbers. So `2>&1` means "redirect the standard error to the
-same place as stdout". If you remove the ampersand, it will create a file
-called `1` and write the output to it.
+referred to as numbers. So "two greater than ampersand one" means "redirect the
+standard error to the same place as stdout". If you remove the ampersand, it
+will create a file called `1` and write the output to it.
+
+And finally, you can silence everything by redirecting both streams to
+`/dev/null`, which is a special file that discards everything written to it.
 
 ---
 
@@ -306,7 +351,8 @@ Notes:
 
 Here is an example of how you can build your own little Node JS command line
 interface using readline. Using that library means you can use the same
-shortcuts that are also used in other CLI programs.
+shortcuts that are also used in other CLI programs. We will see a few of them
+later.
 
 ---
 
@@ -444,8 +490,9 @@ Notes:
 Using readline is great, but at some point, you will want something even more
 comfortable to edit longer pieces of text.
 
-A lot of tools will take the `$EDITOR` variable into account,
-you can define it in your shell configuration file.
+ If you are starting with
+the terminal workflow, I recommend using `micro`, so as not to have to learn
+vim or similarly complex editors at the same time you are learning the shell.
 
 ---
 
@@ -458,6 +505,9 @@ export EDITOR=micro # easy mode first, change me later
 - `Ctrl-X Ctrl-E` to edit a command in your `$EDITOR` 🤯🤯
 
 Notes:
+
+A lot of tools will take the `$EDITOR` variable into account,
+you can define it in your shell configuration file.
 
 For instance, if you want to edit a file as root, but still use your favorite
 editor will all the plugins you have, you can use `sudo -e`, that will open a
